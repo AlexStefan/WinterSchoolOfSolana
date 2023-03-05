@@ -36,7 +36,7 @@ describe("solana-calculator", () => {
 
   //Another test step - test out addition
   it('Addition',async () => {
-    await program.methods.add(new anchor.BN(2), new anchor.BN(3))
+    await program.methods.compute(new anchor.BN(2), new anchor.BN(3), "+")
       .accounts({
           calculator: calculatorPair.publicKey,
       })
@@ -45,9 +45,9 @@ describe("solana-calculator", () => {
     expect(account.result).to.eql(new anchor.BN(5))
   })
 
-  //Another test step - test out addition
+  //Another test step - test out deduct
   it('Deduct',async () => {
-    await program.methods.deduct(new anchor.BN(2), new anchor.BN(3))
+    await program.methods.compute(new anchor.BN(2), new anchor.BN(3), "-")
       .accounts({
           calculator: calculatorPair.publicKey,
       })
@@ -56,9 +56,9 @@ describe("solana-calculator", () => {
     expect(account.result).to.eql(new anchor.BN(-1))
   })
 
-  //Another test step - test out addition
+  //Another test step - test out multiply
   it('Multiply',async () => {
-    await program.methods.multiply(new anchor.BN(2), new anchor.BN(3))
+    await program.methods.compute(new anchor.BN(2), new anchor.BN(3), "*")
       .accounts({
           calculator: calculatorPair.publicKey,
       })
@@ -67,9 +67,9 @@ describe("solana-calculator", () => {
     expect(account.result).to.eql(new anchor.BN(6))
   })
 
-  //Another test step - test out addition
+  //Another test step - test out divide
   it('Divide',async () => {
-    await program.methods.divide(new anchor.BN(2), new anchor.BN(3))
+    await program.methods.compute(new anchor.BN(2), new anchor.BN(3), "/")
       .accounts({
           calculator: calculatorPair.publicKey,
       })

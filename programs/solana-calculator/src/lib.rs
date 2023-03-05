@@ -13,27 +13,17 @@ pub mod solana_calculator {
         Ok(())
     }
 
-    pub fn add(ctx: Context<Addition>, num1: i64, num2: i64) -> ProgramResult {
+    pub fn compute(ctx: Context<Compute>, left: i64, right: i64, operator: String) -> ProgramResult {
         let calculator = &mut ctx.accounts.calculator;
-        calculator.result = num1 + num2;
-        Ok(())
-    }
-
-    pub fn deduct(ctx: Context<Addition>, num1: i64, num2: i64) -> ProgramResult {
-        let calculator = &mut ctx.accounts.calculator;
-        calculator.result = num1 - num2;
-        Ok(())
-    }
-
-    pub fn multiply(ctx: Context<Addition>, num1: i64, num2: i64) -> ProgramResult {
-        let calculator = &mut ctx.accounts.calculator;
-        calculator.result = num1 * num2;
-        Ok(())
-    }
-
-    pub fn divide(ctx: Context<Addition>, num1: i64, num2: i64) -> ProgramResult {
-        let calculator = &mut ctx.accounts.calculator;
-        calculator.result = num1 / num2;
+        match operator.as_str() {
+            "+" => calculator.result = left + right,
+            "-" => calculator.result = left - right,
+            "*" => calculator.result = left * right,
+            "/" => calculator.result = left / right,
+            _ => {
+                calculator.result = 0
+            }
+        }
         Ok(())
     }
 }
@@ -49,7 +39,7 @@ pub struct Create<'info> {
 }
 
 #[derive(Accounts)]
-pub struct Addition<'info> {
+pub struct Compute<'info> {
     #[account(mut)]
     pub calculator: Account<'info, Calculator>,
 }
