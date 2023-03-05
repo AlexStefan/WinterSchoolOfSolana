@@ -1,7 +1,7 @@
 [features]
 seeds = false
 [programs.localnet]
-solana_calculator = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+solana_calculator = "2BDRQuuxdr2kCMN4z7cfbgpcv98bLCF5kCeJkwBDTnyZ"
 
 [registry]
 url = "https://anchor.projectserum.com"
