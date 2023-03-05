@@ -1,13 +1,14 @@
 [features]
 seeds = false
+skip-lint = false
 [programs.localnet]
-solana_calculator = "2BDRQuuxdr2kCMN4z7cfbgpcv98bLCF5kCeJkwBDTnyZ"
+solana_calculator = "7oU3XEDPr3MYrPfL5rWGYfeevAnQMRXh5um6nBtpA1Hs"
 
 [registry]
-url = "https://anchor.projectserum.com"
+url = "https://api.apr.dev"
 
 [provider]
-cluster = "localnet"
+cluster = "Localnet"
 wallet = "/Users/alexandru/.config/solana/id.json"
 
 [scripts]

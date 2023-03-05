@@ -2,7 +2,7 @@ import * as anchor from "@project-serum/anchor";
 import { Program } from "@project-serum/anchor";
 import { SolanaCalculator } from "../target/types/solana_calculator";
 
-describe("SolanaCalculator", () => {
+describe("solana-calculator", () => {
   // Configure the client to use the local cluster.
   anchor.setProvider(anchor.AnchorProvider.env());
 

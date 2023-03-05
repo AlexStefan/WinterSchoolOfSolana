@@ -11,3 +11,4 @@ Cargo.lock
 node_modules/*
 test-ledger/*
 validator-keypair.json
+.anchor/*
