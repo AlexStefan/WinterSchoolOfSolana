@@ -45,4 +45,36 @@ describe("solana-calculator", () => {
     expect(account.result).to.eql(new anchor.BN(5))
   })
 
+  //Another test step - test out addition
+  it('Deduct',async () => {
+    await program.methods.deduct(new anchor.BN(2), new anchor.BN(3))
+      .accounts({
+          calculator: calculatorPair.publicKey,
+      })
+      .rpc()
+    const account = await program.account.calculator.fetch(calculatorPair.publicKey)
+    expect(account.result).to.eql(new anchor.BN(-1))
+  })
+
+  //Another test step - test out addition
+  it('Multiply',async () => {
+    await program.methods.multiply(new anchor.BN(2), new anchor.BN(3))
+      .accounts({
+          calculator: calculatorPair.publicKey,
+      })
+      .rpc()
+    const account = await program.account.calculator.fetch(calculatorPair.publicKey)
+    expect(account.result).to.eql(new anchor.BN(6))
+  })
+
+  //Another test step - test out addition
+  it('Divide',async () => {
+    await program.methods.divide(new anchor.BN(2), new anchor.BN(3))
+      .accounts({
+          calculator: calculatorPair.publicKey,
+      })
+      .rpc()
+    const account = await program.account.calculator.fetch(calculatorPair.publicKey)
+    expect(account.result).to.eql(new anchor.BN(0))
+  })
 });
